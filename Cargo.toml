@@ -1,0 +1,26 @@
+[package]
+name = "space-invaders"
+version = "0.1.0"
+authors = ["Pavan_Parker <ppavanrockz@gmail.com>"]
+edition = "2018"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true    # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[features]
+default = ["native"]
+native = ["esp-idf-sys/native"]
+
+[dependencies]
+esp-idf-sys = { version = "0.30.6", features = ["binstart"] }
+embedded-graphics = "0.7.1"
+ssd1306 = "0.7.0"
+esp-idf-hal = "0.33.1"
+[build-dependencies]
+embuild = "0.28"
+anyhow = "1"
